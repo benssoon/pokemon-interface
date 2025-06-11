@@ -29,8 +29,8 @@ public class PokemonGymImpl implements PokemonGym {
     }
 
     @Override
-    public void printPokemon(List<Pokemon> pokemons) {
-        for (Pokemon p : pokemons) {
+    public void printPokemon(List<Pokemon> allPokemon) {
+        for (Pokemon p : allPokemon) {
             System.out.println(p.getName());
         }
     }

@@ -1,4 +1,4 @@
-public class Pokemon {
+public class PokemonTrainer {
     private String name;
 
     public String getName() {
