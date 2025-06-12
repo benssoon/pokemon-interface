@@ -1,3 +1,5 @@
+import pokemonTypes.Pokemon;
+
 import java.util.List;
 
 public class PokemonGymOwner {

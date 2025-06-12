@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import pokemonTypes.Pokemon;
 
 public class Main {
     // Deze 4 constanten worden gebruikt om tekst met kleur te printen in de console.
@@ -29,8 +30,8 @@ public class Main {
         System.out.println("First player please enter your name: ");
         String userA = speler_A.nextLine();
         PokemonTrainer player1 = new PokemonTrainer(userA, pokemons);
-        System.out.println("To start your game, we have given you 6 Pokemon to use");
-        System.out.println("these are the Pokemon you get:");
+        System.out.println("To start your game, we have given you 6 pokemonTypes.Pokemon to use");
+        System.out.println("these are the pokemonTypes.Pokemon you get:");
         pokemonGym.printPokemon(pokemons);
         System.out.println("Would you like to enter a gym looking for a fight?");
         System.out.println("Please enter yes or no");
