@@ -5,31 +5,31 @@ import java.util.List;
 public abstract class Pokemon {
 
     // Properties
-    private String species;
+    private String name;
     private int level;
     private int hp;
-    private String name;
+    private String food;
     private String sound;
     private List<String> attacks;
 
     // Constructor
 
 
-    public Pokemon(String species, int level, int hp, String name, String sound) {
-        this.species = species;
+    public Pokemon(String name, int level, int hp, String food, String sound) {
+        this.name = name;
         this.level = level;
         this.hp = hp;
-        this.name = name;
+        this.food = food;
         this.sound = sound;
     }
 
     // Getters
-    public String getName() {
-        return this.name;
+    public String getFood() {
+        return this.food;
     }
 
-    public String getSpecies() {
-        return this.species;
+    public String getName() {
+        return this.name;
     }
 
     public int getLevel() {
