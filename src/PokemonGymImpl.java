@@ -153,7 +153,7 @@ public class PokemonGymImpl implements PokemonGym {
     public void performAttackPlayer(Pokemon trianerPokemon, Pokemon gymPokemon, String attack){
 
         //
-        // IMPORTANT: There are only four specific moves allowed PER POKEMON TYPE!
+        // IMPORTANT: There are only four specific moves allowed PER POKÉMON TYPE!
         // Implement just those, within each type subclass.
         // Each one is a String in a list and has an associated method.
         //

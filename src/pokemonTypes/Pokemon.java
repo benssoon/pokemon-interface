@@ -47,4 +47,8 @@ public abstract class Pokemon {
     public abstract String getType();
 
     public abstract String getAttacks();
+
+    public void addAttack(String attack) {
+        this.attacks.add(attack);
+    }
 }
