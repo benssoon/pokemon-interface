@@ -171,6 +171,9 @@ public class PokemonGymImpl implements PokemonGym {
                 switch (chosenAttack) {
                     case "inferno" -> fire.inferno(trianerPokemon, gymPokemon);
                     case "pyroball" -> fire.pyroBall(trianerPokemon, gymPokemon);
+
+                    // ^^^^ Is this a typo??? shouldn't it be camelcase like in the switch later on??
+
                     case "firelash" -> fire.fireLash(trianerPokemon, gymPokemon);
                     default -> fire.flameThrower(trianerPokemon, gymPokemon);
                 }
@@ -190,7 +193,7 @@ public class PokemonGymImpl implements PokemonGym {
                     case "leafstorm" -> grass.leafStorm(trianerPokemon, gymPokemon);
                     case "solarbeam" -> grass.solarBeam(trianerPokemon, gymPokemon);
                     case "leechseed" -> grass.leechSeed(trianerPokemon, gymPokemon);
-                    default -> grass.leaveBlade(trianerPokemon, gymPokemon);
+                    default -> grass.leafBlade(trianerPokemon, gymPokemon);
                 }
             }
             default -> {
@@ -222,6 +225,9 @@ public class PokemonGymImpl implements PokemonGym {
                 switch (attack) {
                     case "inferno" -> fire.inferno(gymPokemon, pokemon);
                     case "pyroBall" -> fire.pyroBall(gymPokemon, pokemon);
+
+                    // ^^^^ Is this a typo??? should it be camelcase, or lower case like in the switch earlier??
+
                     case "fireLash" -> fire.fireLash(gymPokemon, pokemon);
                     default -> fire.flameThrower(gymPokemon, pokemon);
                 }
