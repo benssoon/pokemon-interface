@@ -4,7 +4,7 @@ import java.util.List;
 
 public class FirePokemon extends Pokemon {
 
-    private String[] moves = {"inferno", "pyroball", "firelash", "flame thrower"};
+    private String[] moves = {"inferno", "pyroBall", "fireLash", "flameThrower"};
 
     public FirePokemon(String species, int level, int hp, String name, String sound) {
         super(species, level, hp, name, sound);

@@ -2,6 +2,8 @@ package pokemonTypes;
 
 public class GrassPokemon extends Pokemon {
 
+    private String[] moves = {"leafStorm", "solarBeam", "leechSeed", "leafBlade"};
+
     public GrassPokemon(String species, int level, int hp, String name, String sound) {
         super(species, level, hp, name, sound);
     }

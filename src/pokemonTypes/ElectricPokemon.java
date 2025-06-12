@@ -2,6 +2,8 @@ package pokemonTypes;
 
 public class ElectricPokemon extends Pokemon{
 
+    private String[] moves = {"thunderPunch", "electroBall", "thunder", "voltTackle"};
+
     public ElectricPokemon(String species, int level, int hp, String name, String sound) {
         super(species, level, hp, name, sound);
     }

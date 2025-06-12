@@ -2,6 +2,8 @@ package pokemonTypes;
 
 public class WaterPokemon extends Pokemon {
 
+    private String[] moves = {"surf", "hydroPump", "hydroCanon", "rainDance"};
+
     public WaterPokemon(String species, int level, int hp, String name, String sound) {
         super(species, level, hp, name, sound);
     }
@@ -31,7 +33,7 @@ public class WaterPokemon extends Pokemon {
 
     public void hydroCanon(Pokemon attacker, Pokemon defender) {
         int damage = 30;
-        System.out.println(attacker + " used Hydro Canon!");
+        System.out.println(attacker + " played Pachelbel's Canon in D!  ;-)  "); // Lol spelling.
         defender.setHp(defender.getHp() - damage);
     }
 
