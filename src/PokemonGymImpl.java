@@ -54,20 +54,20 @@ public class PokemonGymImpl implements PokemonGym {
     }
 
     @Override
-    public void fightRound(PokemonTrainer trainer, PokemonGymOwner owner, Pokemon pokemon, Pokemon gymPokemon) {
+    public void fightRound(PokemonTrainer trainer, PokemonGymOwner gymLeader, Pokemon trainerPokemon, Pokemon gymPokemon) {
         Scanner speler_A = new Scanner(System.in);
-        while (pokemon.getHp() > 0 && gymPokemon.getHp() > 0) {
+        while (trainerPokemon.getHp() > 0 && gymPokemon.getHp() > 0) {
 
-            System.out.println("Its " + owner.getName() + "'s turn to attack");
-            gymOwnerAttacks(gymPokemon, pokemon);
+            System.out.println("Its " + gymLeader.getName() + "'s turn to attack");
+            gymOwnerAttacks(gymPokemon, trainerPokemon);
             System.out.println("Its " + trainer.getName() + "'s turn to attack");
-            attackOrChange(pokemon, gymPokemon, trainer, owner);
+            attackOrChange(trainerPokemon, gymPokemon, trainer, gymLeader);
 
         }
-        if(pokemon.getHp() <= 0){
-            System.out.println(gymPokemon.getName() + " has defeated " + pokemon.getName());
+        if(trainerPokemon.getHp() <= 0){
+            System.out.println(gymPokemon.getName() + " has defeated " + trainerPokemon.getName());
         } else if (gymPokemon.getHp() <= 0){
-            System.out.println(pokemon.getName() + " has defeated " + gymPokemon.getName());
+            System.out.println(trainerPokemon.getName() + " has defeated " + gymPokemon.getName());
         }
 
         System.out.println("Would you like to keep playing? yes or no");
@@ -119,6 +119,13 @@ public class PokemonGymImpl implements PokemonGym {
 
     @Override
     public String chooseAttackPlayer(Pokemon p){
+
+        //
+        //IMPORTANT: There are only four specific moves allowed PER POKEMON TYPE!
+        // Implement just those, within each type subclass.
+        // Each one is a method.
+        //
+
         Scanner speler_A = new Scanner(System.in);
         String type = p.getType();
         switch (type) {
@@ -150,7 +157,7 @@ public class PokemonGymImpl implements PokemonGym {
     }
 
     @Override
-    public void performAttackPlayer(Pokemon pokemon, Pokemon gymPokemon, String attack){
+    public void performAttackPlayer(Pokemon trianerPokemon, Pokemon gymPokemon, String attack){
         FirePokemon fire;
         ElectricPokemon electric;
         GrassPokemon grass;
@@ -158,41 +165,41 @@ public class PokemonGymImpl implements PokemonGym {
 
         String choosenAttack = attack.toLowerCase(Locale.ROOT);
 
-        switch (pokemon.getType()) {
+        switch (trianerPokemon.getType()) {
             case "fire" -> {
-                fire = new FirePokemon(pokemon.getName(), pokemon.getLevel(), pokemon.getHp(), pokemon.getFood(), pokemon.getSound());
+                fire = new FirePokemon(trianerPokemon.getName(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
                 switch (choosenAttack) {
-                    case "inferno" -> fire.inferno(pokemon, gymPokemon);
-                    case "pyroball" -> fire.pyroBall(pokemon, gymPokemon);
-                    case "firelash" -> fire.fireLash(pokemon, gymPokemon);
-                    default -> fire.flameThrower(pokemon, gymPokemon);
+                    case "inferno" -> fire.inferno(trianerPokemon, gymPokemon);
+                    case "pyroball" -> fire.pyroBall(trianerPokemon, gymPokemon);
+                    case "firelash" -> fire.fireLash(trianerPokemon, gymPokemon);
+                    default -> fire.flameThrower(trianerPokemon, gymPokemon);
                 }
             }
             case "water" -> {
-                water = new WaterPokemon(pokemon.getName(), pokemon.getLevel(), pokemon.getHp(), pokemon.getFood(), pokemon.getSound());
+                water = new WaterPokemon(trianerPokemon.getName(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
                 switch (choosenAttack) {
-                    case "surf" -> water.surf(pokemon, gymPokemon);
-                    case "hydropump" -> water.hydroPump(pokemon, gymPokemon);
-                    case "hydrocanon" -> water.hydroCanon(pokemon, gymPokemon);
-                    default -> water.rainDance(pokemon, gymPokemon);
+                    case "surf" -> water.surf(trianerPokemon, gymPokemon);
+                    case "hydropump" -> water.hydroPump(trianerPokemon, gymPokemon);
+                    case "hydrocanon" -> water.hydroCanon(trianerPokemon, gymPokemon);
+                    default -> water.rainDance(trianerPokemon, gymPokemon);
                 }
             }
             case "grass" -> {
-                grass = new GrassPokemon(pokemon.getName(), pokemon.getLevel(), pokemon.getHp(), pokemon.getFood(), pokemon.getSound());
+                grass = new GrassPokemon(trianerPokemon.getName(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
                 switch (choosenAttack) {
-                    case "leafstorm" -> grass.leafStorm(pokemon, gymPokemon);
-                    case "solarbeam" -> grass.solarBeam(pokemon, gymPokemon);
-                    case "leechseed" -> grass.leechSeed(pokemon, gymPokemon);
-                    default -> grass.leaveBlade(pokemon, gymPokemon);
+                    case "leafstorm" -> grass.leafStorm(trianerPokemon, gymPokemon);
+                    case "solarbeam" -> grass.solarBeam(trianerPokemon, gymPokemon);
+                    case "leechseed" -> grass.leechSeed(trianerPokemon, gymPokemon);
+                    default -> grass.leaveBlade(trianerPokemon, gymPokemon);
                 }
             }
             default -> {
-                electric = new ElectricPokemon(pokemon.getName(), pokemon.getLevel(), pokemon.getHp(), pokemon.getFood(), pokemon.getSound());
+                electric = new ElectricPokemon(trianerPokemon.getName(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
                 switch (choosenAttack) {
-                    case "thunderpunch" -> electric.thunderPunch(pokemon, gymPokemon);
-                    case "electroball" -> electric.electroBall(pokemon, gymPokemon);
-                    case "thunder" -> electric.thunder(pokemon, gymPokemon);
-                    default -> electric.voltTackle(pokemon, gymPokemon);
+                    case "thunderpunch" -> electric.thunderPunch(trianerPokemon, gymPokemon);
+                    case "electroball" -> electric.electroBall(trianerPokemon, gymPokemon);
+                    case "thunder" -> electric.thunder(trianerPokemon, gymPokemon);
+                    default -> electric.voltTackle(trianerPokemon, gymPokemon);
                 }
             }
         }
@@ -250,7 +257,7 @@ public class PokemonGymImpl implements PokemonGym {
     }
 
     @Override
-    public void attackOrChange(Pokemon pokemon, Pokemon gymPokemon, PokemonTrainer trainer, PokemonGymOwner gym){
+    public void attackOrChange(Pokemon trainerPokemon, Pokemon gymPokemon, PokemonTrainer trainer, PokemonGymOwner gymLeader){
         Scanner speler_A = new Scanner(System.in);
 
         System.out.println("Do you want to attack or change your pokemon?");
@@ -258,12 +265,12 @@ public class PokemonGymImpl implements PokemonGym {
         String choice = speler_A.nextLine();
 
         if (choice.equalsIgnoreCase("a")) {
-            String attack = chooseAttackPlayer(pokemon);
-            performAttackPlayer(pokemon, gymPokemon, attack);
+            String attack = chooseAttackPlayer(trainerPokemon); // Get the desired attack as a string.
+            performAttackPlayer(trainerPokemon, gymPokemon, attack); // [trainerPokemon] does [attack] to [gymPokemon]
         } else {
-            pokemon = choosePokemon(trainer);
-            attackOrChange(pokemon, gymPokemon, trainer, gym);
-            fightRound(trainer, gym, pokemon, gymPokemon);
+            trainerPokemon = choosePokemon(trainer); // Player chose to switch Pokemon. Now select which one.
+            attackOrChange(trainerPokemon, gymPokemon, trainer, gymLeader); // Will [trainer] attack [gymLeader]'s [gymPokemon] with [trainerPokemon], or switch Pokemon?
+            fightRound(trainer, gymLeader, trainerPokemon, gymPokemon); // Go to the next round of the fight.
         }
     }
 
