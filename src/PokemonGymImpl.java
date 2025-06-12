@@ -1,6 +1,10 @@
+import pokemonTrainers.PokemonGymOwner;
+import pokemonTrainers.PokemonTrainer;
 import pokemonTypes.Pokemon;
-
+import java.util.Scanner;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Random;
 
 // Los in deze klasse alle foutmeldingen op door (abstracte) klassen met variabelen en methodes te maken en een interface met methodes (en soms een import).
 public class PokemonGymImpl implements PokemonGym {
