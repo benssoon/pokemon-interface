@@ -1,6 +1,6 @@
 import pokemonTrainers.PokemonGymOwner;
 import pokemonTrainers.PokemonTrainer;
-import pokemonTypes.Pokemon;
+import pokemonTypes.*;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
