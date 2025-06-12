@@ -10,4 +10,6 @@ public class FirePokemon extends Pokemon {
     public String getType() {
         return "fire";
     }
+    
+
 }

@@ -1,5 +1,7 @@
 package pokemonTypes;
 
+import java.util.List;
+
 public abstract class Pokemon {
 
     // Properties
@@ -8,6 +10,7 @@ public abstract class Pokemon {
     private int hp;
     private String name;
     private String sound;
+    private List<String> attacks;
 
     // Constructor
 
@@ -42,4 +45,6 @@ public abstract class Pokemon {
     }
 
     public abstract String getType();
+
+    public abstract String getAttacks();
 }

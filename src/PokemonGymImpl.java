@@ -119,13 +119,6 @@ public class PokemonGymImpl implements PokemonGym {
 
     @Override
     public String chooseAttackPlayer(Pokemon p){
-
-        //
-        //IMPORTANT: There are only four specific moves allowed PER POKEMON TYPE!
-        // Implement just those, within each type subclass.
-        // Each one is a method.
-        //
-
         Scanner speler_A = new Scanner(System.in);
         String type = p.getType();
         switch (type) {
@@ -158,6 +151,13 @@ public class PokemonGymImpl implements PokemonGym {
 
     @Override
     public void performAttackPlayer(Pokemon trianerPokemon, Pokemon gymPokemon, String attack){
+
+        //
+        // IMPORTANT: There are only four specific moves allowed PER POKEMON TYPE!
+        // Implement just those, within each type subclass.
+        // Each one is a String in a list and has an associated method.
+        //
+
         FirePokemon fire;
         ElectricPokemon electric;
         GrassPokemon grass;
