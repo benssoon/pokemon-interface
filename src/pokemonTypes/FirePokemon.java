@@ -18,9 +18,27 @@ public class FirePokemon extends Pokemon {
 
     // Methods
     public void inferno(Pokemon attacker, Pokemon defender) {
-        int infernoDamage = 10;
+        int damage = 10;
         System.out.println(attacker + " used Inferno!");
-        defender.setHp(defender.getHp() - infernoDamage);
+        defender.setHp(defender.getHp() - damage);
+    }
+
+    public void pyroBall(Pokemon attacker, Pokemon defender) {
+        int damage = 20;
+        System.out.println(attacker + " used Pyroball!");
+        defender.setHp(defender.getHp() - damage);
+    }
+
+    public void fireLash(Pokemon attacker, Pokemon defender) {
+        int damage = 30;
+        System.out.println(attacker + " used Firelash!");
+        defender.setHp(defender.getHp() - damage);
+    }
+
+    public void flameThrower(Pokemon attacker, Pokemon defender) {
+        int damage = 40;
+        System.out.println(attacker + " used Flame Thrower!");
+        defender.setHp(defender.getHp() - damage);
     }
     
 
