@@ -1,6 +1,6 @@
 package pokemonTypes;
 
-public class Pokemon {
+public abstract class Pokemon {
 
     // Properties
     private String species;
@@ -40,4 +40,6 @@ public class Pokemon {
     public String getSound() {
         return this.sound;
     }
+
+    public abstract String getType();
 }
