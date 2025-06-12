@@ -11,5 +11,35 @@ public class WaterPokemon extends Pokemon {
         return "water";
     }
 
+    // Methods
+
+    // Is there a more generic way of doing this???
+    // Seems so clunky that each move has to have its own method,
+    // which basically does the same as all the other methods...
+
+    public void surf(Pokemon attacker, Pokemon defender) {
+        int damage = 10;
+        System.out.println(attacker + " used Surf!");
+        defender.setHp(defender.getHp() - damage);
+    }
+
+    public void hydroPump(Pokemon attacker, Pokemon defender) {
+        int damage = 20;
+        System.out.println(attacker + " used Hydro Pump!");
+        defender.setHp(defender.getHp() - damage);
+    }
+
+    public void hydroCanon(Pokemon attacker, Pokemon defender) {
+        int damage = 30;
+        System.out.println(attacker + " used Hydro Canon!");
+        defender.setHp(defender.getHp() - damage);
+    }
+
+    public void rainDance(Pokemon attacker, Pokemon defender) {
+        int damage = 0;
+        System.out.println(attacker + " used Rain Dance! It started raining!");
+        defender.setHp(defender.getHp() - damage);
+    }
+
 
 }
