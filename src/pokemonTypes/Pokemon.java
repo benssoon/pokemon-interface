@@ -1,5 +1,6 @@
 package pokemonTypes;
 
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class Pokemon {
@@ -46,9 +47,33 @@ public abstract class Pokemon {
 
     public abstract String getType();
 
-    public abstract String getAttacks();
+    public List<String> getAttacks() {
+        return this.attacks;
+    }
 
-    public void addAttack(String attack) {
-        this.attacks.add(attack);
+    // Setters
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public void setFood(String food) {
+        this.food = food;
+    }
+
+    public void setSound(String sound) {
+        this.sound = sound;
+    }
+
+    public void setAttacks(String[] moves) {
+        this.attacks.addAll(Arrays.asList(moves));
     }
 }
