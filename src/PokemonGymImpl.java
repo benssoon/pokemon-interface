@@ -23,9 +23,9 @@ public class PokemonGymImpl implements PokemonGym {
         System.out.println(Main.ANSI_RED + gymOwner.getName() + Main.ANSI_RESET +": So you're after my badge too, lets fight!!!");
 
         Pokemon gymPokemon = chooseGymPokemon(gymOwner);
-        System.out.println(Main.ANSI_RED + gymOwner.getName() + Main.ANSI_RESET +": I choose you, " + gymPokemon.getFood());
+        System.out.println(Main.ANSI_RED + gymOwner.getName() + Main.ANSI_RESET +": I choose you, " + gymPokemon.getName());
         Pokemon pokemon = choosePokemon(player1);
-        System.out.println(Main.ANSI_GREEN + player1.getName() + Main.ANSI_RESET + ": I choose you, " + pokemon.getFood());
+        System.out.println(Main.ANSI_GREEN + player1.getName() + Main.ANSI_RESET + ": I choose you, " + pokemon.getName());
 
         fightRound(player1, gymOwner, pokemon, gymPokemon);
 
@@ -34,7 +34,7 @@ public class PokemonGymImpl implements PokemonGym {
     @Override
     public void printPokemon(List<Pokemon> allPokemon) {
         for (Pokemon p : allPokemon) {
-            System.out.println(p.getFood());
+            System.out.println(p.getName());
         }
     }
 
@@ -43,7 +43,7 @@ public class PokemonGymImpl implements PokemonGym {
         List<Pokemon> pokemons = trainer.getPokemons();
         int number = 0;
         for (int i = 0; i < pokemons.size(); i++) {
-            if (pokemons.get(i).getFood().equalsIgnoreCase(pokemon)) {
+            if (pokemons.get(i).getName().equalsIgnoreCase(pokemon)) {
                 number = i;
             }
         }
@@ -62,9 +62,9 @@ public class PokemonGymImpl implements PokemonGym {
 
         }
         if(trainerPokemon.getHp() <= 0){
-            System.out.println(gymPokemon.getFood() + " has defeated " + trainerPokemon.getFood());
+            System.out.println(gymPokemon.getName() + " has defeated " + trainerPokemon.getName());
         } else if (gymPokemon.getHp() <= 0){
-            System.out.println(trainerPokemon.getFood() + " has defeated " + gymPokemon.getFood());
+            System.out.println(trainerPokemon.getName() + " has defeated " + gymPokemon.getName());
         }
 
         System.out.println("Would you like to keep playing? yes or no");
@@ -101,7 +101,7 @@ public class PokemonGymImpl implements PokemonGym {
         }
         System.out.println("Please make your choice of pokemon to attack");
         for (Pokemon p : pokemons) {
-            System.out.println(p.getFood());
+            System.out.println(p.getName());
         }
         String pokemon = speler_A.nextLine();
         return selectPokemon(pokemon, trainer);
@@ -164,7 +164,7 @@ public class PokemonGymImpl implements PokemonGym {
 
         switch (trianerPokemon.getType()) {
             case "fire" -> {
-                fire = new FirePokemon(trianerPokemon.getFood(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
+                fire = new FirePokemon(trianerPokemon.getName(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
                 switch (chosenAttack) {
                     case "inferno" -> fire.inferno(trianerPokemon, gymPokemon);
                     case "pyroball" -> fire.pyroBall(trianerPokemon, gymPokemon);
@@ -176,7 +176,7 @@ public class PokemonGymImpl implements PokemonGym {
                 }
             }
             case "water" -> {
-                water = new WaterPokemon(trianerPokemon.getFood(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
+                water = new WaterPokemon(trianerPokemon.getName(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
                 switch (chosenAttack) {
                     case "surf" -> water.surf(trianerPokemon, gymPokemon);
                     case "hydropump" -> water.hydroPump(trianerPokemon, gymPokemon);
@@ -185,7 +185,7 @@ public class PokemonGymImpl implements PokemonGym {
                 }
             }
             case "grass" -> {
-                grass = new GrassPokemon(trianerPokemon.getFood(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
+                grass = new GrassPokemon(trianerPokemon.getName(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
                 switch (chosenAttack) {
                     case "leafstorm" -> grass.leafStorm(trianerPokemon, gymPokemon);
                     case "solarbeam" -> grass.solarBeam(trianerPokemon, gymPokemon);
@@ -194,7 +194,7 @@ public class PokemonGymImpl implements PokemonGym {
                 }
             }
             default -> {
-                electric = new ElectricPokemon(trianerPokemon.getFood(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
+                electric = new ElectricPokemon(trianerPokemon.getName(), trianerPokemon.getLevel(), trianerPokemon.getHp(), trianerPokemon.getFood(), trianerPokemon.getSound());
                 switch (chosenAttack) {
                     case "thunderpunch" -> electric.thunderPunch(trianerPokemon, gymPokemon);
                     case "electroball" -> electric.electroBall(trianerPokemon, gymPokemon);
@@ -214,10 +214,9 @@ public class PokemonGymImpl implements PokemonGym {
 
         switch (gymPokemon.getType()) {
             case "fire" -> {
-                fire = new FirePokemon(gymPokemon.getFood(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
+                fire = new FirePokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
 
                 // Pokemon.getAttacks() returns a List object.
-                System.out.println(fire.getAttacks());
                 String attack = fire.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
                     case "inferno" -> fire.inferno(gymPokemon, pokemon);
@@ -230,7 +229,7 @@ public class PokemonGymImpl implements PokemonGym {
                 }
             }
             case "water" -> {
-                water = new WaterPokemon(gymPokemon.getFood(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
+                water = new WaterPokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
                 String attack = water.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
                     case "surf" -> water.surf(gymPokemon, pokemon);
@@ -240,7 +239,7 @@ public class PokemonGymImpl implements PokemonGym {
                 }
             }
             case "grass" -> {
-                grass = new GrassPokemon(gymPokemon.getFood(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
+                grass = new GrassPokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
                 String attack = grass.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
                     case "leafStorm" -> grass.leafStorm(gymPokemon, pokemon);
@@ -250,7 +249,7 @@ public class PokemonGymImpl implements PokemonGym {
                 }
             }
             default -> {
-                electric = new ElectricPokemon(gymPokemon.getFood(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
+                electric = new ElectricPokemon(gymPokemon.getName(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
                 String attack = electric.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
                     case "thunderPunch" -> electric.thunderPunch(gymPokemon, pokemon);
