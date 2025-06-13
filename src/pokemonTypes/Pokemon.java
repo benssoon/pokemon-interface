@@ -1,5 +1,6 @@
 package pokemonTypes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public abstract class Pokemon {
     private int hp;
     private String food;
     private String sound;
-    private List<String> attacks;
+    private List<String> attacks = new ArrayList<>();
 
     // Constructor
 

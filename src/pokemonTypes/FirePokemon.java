@@ -40,6 +40,4 @@ public class FirePokemon extends Pokemon {
         System.out.println(attacker + " used Flame Thrower!");
         defender.setHp(defender.getHp() - damage);
     }
-    
-
 }

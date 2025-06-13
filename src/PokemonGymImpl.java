@@ -217,7 +217,7 @@ public class PokemonGymImpl implements PokemonGym {
                 fire = new FirePokemon(gymPokemon.getFood(), gymPokemon.getLevel(), gymPokemon.getHp(), gymPokemon.getFood(), gymPokemon.getSound());
 
                 // Pokemon.getAttacks() returns a List object.
-
+                System.out.println(fire.getAttacks());
                 String attack = fire.getAttacks().get(randomAttackByGymOwner());
                 switch (attack) {
                     case "inferno" -> fire.inferno(gymPokemon, pokemon);
