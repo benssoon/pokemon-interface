@@ -17,24 +17,24 @@ public class GrassPokemon extends Pokemon {
     public void leafStorm(Pokemon attacker, Pokemon defender) {
         int damage = 10;
         System.out.println(attacker.getName() + " used Leaf Storm!");
-        defender.setHp(defender.getHp() - damage);
+        attacker.dealDamage(defender, damage);
     }
 
     public void solarBeam(Pokemon attacker, Pokemon defender) {
         int damage = 20;
-        System.out.println(attacker.getName() + " used Solar Beam! " + attacker + " must recharge.");
-        defender.setHp(defender.getHp() - damage);
+        System.out.println(attacker.getName() + " used Solar Beam! " + attacker.getName() + " must recharge.");
+        attacker.dealDamage(defender, damage);
     }
 
     public void leechSeed(Pokemon attacker, Pokemon defender) {
-        int damage = 0;
-        System.out.println(attacker.getName() + " used Leech Seed! " + defender + " was seeded!");
-        defender.setHp(defender.getHp() - damage);
+        int damage = 50;
+        System.out.println(attacker.getName() + " used Leech Seed! " + defender.getName() + " was seeded!");
+        attacker.dealDamage(defender, damage);
     }
 
     public void leafBlade(Pokemon attacker, Pokemon defender) {
         int damage = 30;
         System.out.println(attacker.getName() + " used Leaffff Blade!");
-        defender.setHp(defender.getHp() - damage);
+        attacker.dealDamage(defender, damage);
     }
 }

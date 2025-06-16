@@ -19,4 +19,12 @@ public class PokemonTrainer {
     public List<Pokemon> getPokemons() {
         return this.pokemons;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPokemons(List<Pokemon> pokemons) {
+        this.pokemons = pokemons;
+    }
 }

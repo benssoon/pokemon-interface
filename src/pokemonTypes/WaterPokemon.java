@@ -23,25 +23,25 @@ public class WaterPokemon extends Pokemon {
     public void surf(Pokemon attacker, Pokemon defender) {
         int damage = 10;
         System.out.println(attacker.getName() + " used Surf!");
-        defender.setHp(defender.getHp() - damage);
+        attacker.dealDamage(defender, damage);
     }
 
     public void hydroPump(Pokemon attacker, Pokemon defender) {
         int damage = 20;
         System.out.println(attacker.getName() + " used Hydro Pump!");
-        defender.setHp(defender.getHp() - damage);
+        attacker.dealDamage(defender, damage);
     }
 
     public void hydroCanon(Pokemon attacker, Pokemon defender) {
         int damage = 30;
         System.out.println(attacker.getName() + " played Pachelbel's Canon in D!  ;-)  "); // Lol spelling.
-        defender.setHp(defender.getHp() - damage);
+        attacker.dealDamage(defender, damage);
     }
 
     public void rainDance(Pokemon attacker, Pokemon defender) {
         int damage = 0;
         System.out.println(attacker.getName() + " used Rain Dance! It started raining!");
-        defender.setHp(defender.getHp() - damage);
+        attacker.dealDamage(defender, damage);
     }
 
 

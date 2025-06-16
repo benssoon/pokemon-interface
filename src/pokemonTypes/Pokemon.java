@@ -7,11 +7,11 @@ import java.util.List;
 public abstract class Pokemon {
 
     // Properties
-    private String name;
+    private final String name;
     private int level;
     private int hp;
-    private String food;
-    private String sound;
+    private final String food;
+    private final String sound;
     private List<String> attacks = new ArrayList<>();
 
     // Constructor
@@ -54,27 +54,16 @@ public abstract class Pokemon {
 
     // Setters
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
     public void setHp(int hp) {
         this.hp = hp;
     }
 
-    public void setFood(String food) {
-        this.food = food;
-    }
-
-    public void setSound(String sound) {
-        this.sound = sound;
-    }
-
     public void setAttacks(String[] moves) {
         this.attacks.addAll(Arrays.asList(moves));
+    }
+
+    public void dealDamage(Pokemon defender, int damage) {
+        defender.setHp(defender.getHp() - damage);
+        System.out.println(defender.getName() + " has " + defender.getHp() + " hp.");
     }
 }

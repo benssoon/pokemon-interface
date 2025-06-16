@@ -56,10 +56,9 @@ public class PokemonGymImpl implements PokemonGym {
         while (trainerPokemon.getHp() > 0 && gymPokemon.getHp() > 0) {
 
             System.out.println("Its " + gymLeader.getName() + "'s turn to attack");
-            gymOwnerAttacks(gymPokemon, trainerPokemon);
+            gymOwnerAttacks(gymPokemon, trainerPokemon); // Gym leader can attack while Trainer has negative HP???
             System.out.println("Its " + trainer.getName() + "'s turn to attack");
             attackOrChange(trainerPokemon, gymPokemon, trainer, gymLeader);
-
         }
         if(trainerPokemon.getHp() <= 0){
             System.out.println(gymPokemon.getName() + " has defeated " + trainerPokemon.getName());

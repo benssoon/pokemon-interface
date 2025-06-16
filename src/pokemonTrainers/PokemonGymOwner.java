@@ -15,4 +15,8 @@ public class PokemonGymOwner extends PokemonTrainer {
     public String getTown() {
         return this.town;
     }
+
+    public void setTown(String town) {
+        this.town = town;
+    }
 }

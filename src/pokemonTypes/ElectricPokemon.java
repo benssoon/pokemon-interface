@@ -11,30 +11,30 @@ public class ElectricPokemon extends Pokemon{
 
     @Override
     public String getType() {
-        return "";
+        return "electric";
     }
 
     public void thunderPunch(Pokemon attacker, Pokemon defender) {
         int damage = 10;
         System.out.println(attacker.getName() + " used Thunder Punch!");
-        defender.setHp(defender.getHp() - damage);
+        attacker.dealDamage(defender, damage);
     }
 
     public void electroBall(Pokemon attacker, Pokemon defender) {
         int damage = 20;
         System.out.println(attacker.getName() + " used Electroball!");
-        defender.setHp(defender.getHp() - damage);
+        attacker.dealDamage(defender, damage);
     }
 
     public void thunder(Pokemon attacker, Pokemon defender) {
         int damage = 30;
         System.out.println(attacker.getName() + " used Thunder!");
-        defender.setHp(defender.getHp() - damage);
+        attacker.dealDamage(defender, damage);
     }
 
     public void voltTackle(Pokemon attacker, Pokemon defender) {
         int damage = 40;
         System.out.println(attacker.getName() + " used Volt Tackle!");
-        defender.setHp(defender.getHp() - damage);
+        attacker.dealDamage(defender, damage);
     }
 }
