@@ -3,16 +3,17 @@ package pokemonTypes;
 public class WaterPokemon extends Pokemon {
 
     private String[] moves = {"surf", "hydroPump", "hydroCanon", "rainDance"};
+    private static final String TYPE = "water";
 
     public WaterPokemon(String name, int level, int hp, String food, String sound) {
-        super(name, level, hp, food, sound);
+        super(name, level, hp, food, sound, TYPE);
         this.setAttacks(moves);
     }
 
-    @Override
+    /*@Override
     public String getType() {
         return "water";
-    }
+    }*/
 
     // Methods
 

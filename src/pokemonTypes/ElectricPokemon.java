@@ -3,16 +3,17 @@ package pokemonTypes;
 public class ElectricPokemon extends Pokemon{
 
     private String[] moves = {"thunderPunch", "electroBall", "thunder", "voltTackle"};
+    private static final String TYPE = "electric";
 
     public ElectricPokemon(String name, int level, int hp, String food, String sound) {
-        super(name, level, hp, food, sound);
+        super(name, level, hp, food, sound, TYPE);
         this.setAttacks(moves);
     }
 
-    @Override
+    /*@Override
     public String getType() {
         return "electric";
-    }
+    }*/
 
     public void thunderPunch(Pokemon attacker, Pokemon defender) {
         int damage = 10;

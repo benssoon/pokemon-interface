@@ -5,16 +5,17 @@ import java.util.List;
 public class FirePokemon extends Pokemon {
 
     private String[] moves = {"inferno", "pyroBall", "fireLash", "flameThrower"};
+    private static final String TYPE = "fire";
 
     public FirePokemon(String name, int level, int hp, String food, String sound) {
-        super(name, level, hp, food, sound);
+        super(name, level, hp, food, sound, TYPE);
         this.setAttacks(moves);
     }
 
-    @Override
+    /*@Override
     public String getType() {
         return "fire";
-    }
+    }*/
 
     // Methods
     public void inferno(Pokemon attacker, Pokemon defender) {

@@ -13,16 +13,18 @@ public abstract class Pokemon {
     private final String food;
     private final String sound;
     private List<String> attacks = new ArrayList<>();
+    private final String type;
 
     // Constructor
 
 
-    public Pokemon(String name, int level, int hp, String food, String sound) {
+    public Pokemon(String name, int level, int hp, String food, String sound, String type) {
         this.name = name;
         this.level = level;
         this.hp = hp;
         this.food = food;
         this.sound = sound;
+        this.type = type;
     }
 
     // Getters
@@ -46,7 +48,9 @@ public abstract class Pokemon {
         return this.sound;
     }
 
-    public abstract String getType();
+    public String getType() {
+        return this.type;
+    };
 
     public List<String> getAttacks() {
         return this.attacks;

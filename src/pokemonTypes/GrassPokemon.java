@@ -3,16 +3,17 @@ package pokemonTypes;
 public class GrassPokemon extends Pokemon {
 
     private String[] moves = {"leafStorm", "solarBeam", "leechSeed", "leafBlade"};
+    private static final String TYPE = "grass";
 
     public GrassPokemon(String name, int level, int hp, String food, String sound) {
-        super(name, level, hp, food, sound);
+        super(name, level, hp, food, sound, TYPE);
         this.setAttacks(moves);
     }
 
-    @Override
+    /*@Override
     public String getType() {
         return "grass";
-    }
+    }*/
 
     public void leafStorm(Pokemon attacker, Pokemon defender) {
         int damage = 10;
